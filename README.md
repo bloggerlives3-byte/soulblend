@@ -6,6 +6,7 @@ SoulBlend is a warm, browser-based mixer built with Next.js and Supabase. Upload
 
 1. **Install dependencies**
    ```bash
+   cd soulblend
    npm install
    ```
 2. **Provide environment variables** (optional – only needed if you want to sync loops from Supabase instead of using the bundled demo loops). Copy `.env.example` to `.env.local` and fill in your Supabase project details.
