@@ -5,10 +5,10 @@ SoulBlend is a warm, browser-based mixer built with Next.js and Supabase. Upload
 ## Getting Started
 
 1. **Install dependencies**
-   ```bash
-   cd soulblend
-   npm install
-   ```
+    ```bash
+    cd soulblend
+    npm install
+    ```
 2. **Provide environment variables** (optional – only needed if you want to sync loops from Supabase instead of using the bundled demo loops). Copy `.env.example` to `.env.local` and fill in your Supabase project details.
    ```bash
    cp .env.example .env.local
@@ -58,7 +58,7 @@ SoulBlend is a warm, browser-based mixer built with Next.js and Supabase. Upload
 
 - Exports default to a 30-second capture window or the duration of the longest loaded track (whichever is greater).
 - WAV exports come directly from `Tone.Recorder`.
-- MP3 exports use `lamejs` to encode the recorded WAV client-side and tag your file with `Created with SoulBlend` metadata.
+- MP3 exports use `lamejs` to encode the recorded WAV client-side.
 
 ## Tech Stack
 

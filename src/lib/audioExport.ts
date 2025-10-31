@@ -1,5 +1,4 @@
 import lamejs from "lamejs";
-import { ID3Writer } from "browser-id3-writer";
 
 export const tagWavBlob = async (wavBlob: Blob) => {
   const buffer = await wavBlob.arrayBuffer();
@@ -103,22 +102,5 @@ export const convertWavBlobToMp3 = async (wavBlob: Blob) => {
     mp3Data.push(mp3buf);
   }
 
-  const totalLength = mp3Data.reduce((sum, chunk) => sum + chunk.length, 0);
-  const mp3Bytes = new Uint8Array(totalLength);
-  let offset = 0;
-  for (const chunk of mp3Data) {
-    mp3Bytes.set(chunk, offset);
-    offset += chunk.length;
-  }
-
-  const writer = new ID3Writer(mp3Bytes.buffer);
-  writer.setFrame("TIT2", "SoulBlend Mix");
-  writer.setFrame("TPE1", ["SoulBlend Creator"]);
-  writer.setFrame("COMM", {
-    description: "SoulBlend",
-    text: "Created with SoulBlend"
-  });
-  writer.addTag();
-
-  return writer.getBlob();
+  return new Blob(mp3Data, { type: "audio/mpeg" });
 };
